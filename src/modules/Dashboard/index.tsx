@@ -88,7 +88,7 @@ const TaskBoard1 = () => {
             name="Search"
             placeholder="Search Here "
             className=" search-btn"
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => setSearchQuery(e.target.value.trim())}
           />
           <Button
             type="submit"
