@@ -287,23 +287,7 @@
   text-decoration: underline;
 }
 
-/* Task Details Page */
-.task-details {
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-}
 
-.task-details h1 {
-  font-size: 32px;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.task-details p {
-  margin-bottom: 15px;
-  color: #555;
-}
 
 .task-meta {
   margin-top: 10px;
@@ -340,76 +324,89 @@
   margin-right: 10px; /* Space between the buttons */
 }
 
-/* Styling for the Logout button */
 .logout-btn {
-  background-color: #dc3545; /* Red color for logout */
-  margin-left: 10px;
+  @apply bg-red-600 ml-2;
 }
 
 .logout-btn:hover {
-  background-color: #c82333;
+  @apply bg-red-700;
 }
 
 .delete-btn {
-  background-color: #fe0000;
-  color: white;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 1px;
-  cursor: pointer;
+  @apply bg-red-600 text-white py-1 px-2 border-none rounded cursor-pointer;
 }
 
 .delete-btn:hover {
-  background-color: #c0392b;
+  @apply bg-red-700;
 }
 
-
-.task-details-card {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.task-details-card h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-.task-details-card p {
-  font-size: 16px;
-  line-height: 1.6;
-  margin: 12px 0;
-  color: #555;
-}
-
-
-.task-details-card span {
-  font-weight: bold;
-}
-
-.status-inprogress {
-  color: #f39c12;
+.status-pending {
+  @apply text-yellow-500;
 }
 
 .status-completed {
-  color: #2ecc71;
+  @apply text-green-500;
 }
 
-.status-todo {
-  color: #e74c3c;
+.status-in {
+  @apply text-red-600;
 }
 
 @media (max-width: 768px) {
   .task-detail-page {
-    padding: 15px;
+    @apply p-4;
   }
 
   .task-header h1 {
-    font-size: 24px;
+    @apply text-xl;
   }
 
   .task-details-card {
-    padding: 15px;
+    @apply p-4;
   }
 }
+
+
+
+
+.button__task .small__loader__sd {
+  @apply mr-[8px] p-[5px] top-0; /* Ensure it's positioned correctly */
+}
+
+.button__task.primary__Btn {
+  @apply before:bg-primaryColor hover:before:bg-primaryColorDark;
+}
+
+.button__task.primary__Btn .btn__text {
+  @apply text-[#ffffff];
+}
+
+.button__task.primary__Btn .small__loader__sd {
+  @apply border-[#ffffff60] border-r-[#ffffff] z-10; /* Ensure loader is visible */
+  width: 20px;
+  height: 20px; 
+  border-radius: 50%;
+  border-top: 2px solid #ffffff; 
+  animation: spin 1s linear infinite; 
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+ 
+
+/* Add this CSS to your styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+

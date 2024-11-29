@@ -9,6 +9,7 @@ import { useCreateTaskAPI, useGetTaskAPI } from "../services";
 import { useNavigate, useParams } from "react-router-dom";
 import { PRIVATE_NAVIGATION } from "constants/navigation.constant";
 import SelectField from "components/FormField/common/SelectField";
+import PageLoader from "components/Theme/Components/PageLoader";
 
 type PropsType = {
   id?: string | null | undefined;
@@ -44,7 +45,14 @@ const AddTaskForm = (props: PropsType) => {
     if (id) {
       const { data, error } = await getTaskAPI({ taskId: id });
       if (data && !error) {
-        reset({ description: data?.data.description, title: data?.data.title });
+        reset({
+          description: data?.data.description,
+          title: data?.data.title,
+          status: {
+            label: data?.data.status,
+            value: data?.data.status,
+          },
+        });
       }
     }
   };
@@ -56,9 +64,11 @@ const AddTaskForm = (props: PropsType) => {
   return (
     <>
       {taslGetLoading ? (
-        <div>Loading</div>
+        <div>
+          <PageLoader />
+        </div>
       ) : (
-        <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+        <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md m-[50px]">
           <h2 className="text-xl font-semibold mb-4">
             {id ? "Update task" : "Add a New Task"}
           </h2>
@@ -106,7 +116,7 @@ const AddTaskForm = (props: PropsType) => {
               </Button>
               <Button
                 className="primary__Btn w-[150] text-align ml-[10px]"
-                onClick={() => navidate(PRIVATE_NAVIGATION.dashboard.view)}
+                onClick={() => navidate(-1)}
               >
                 Cancel
               </Button>

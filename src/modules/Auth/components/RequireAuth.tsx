@@ -5,6 +5,7 @@ import { Navigate } from "react-router-dom";
 import { getAuth } from "../../../redux/slices/authSlice";
 
 import { PUBLIC_NAVIGATION } from "constants/navigation.constant";
+import PageLoader from "components/Theme/Components/PageLoader";
 
 type Props = {
   children: JSX.Element;
@@ -19,11 +20,7 @@ const RequiresAuth = (props: Props) => {
     return <Navigate to={PUBLIC_NAVIGATION.login} />;
   }
 
-
-
-  return (
-      <Suspense fallback={<>"Loading"</>}>{children}</Suspense>
-  );
+  return <Suspense fallback={<PageLoader />}>{children}</Suspense>;
 };
 
 export default RequiresAuth;

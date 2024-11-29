@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from "axios";
-import { useAxiosGet, useAxiosPost } from "hooks/useAxios";
+import { useAxiosDelete, useAxiosGet, useAxiosPost } from "hooks/useAxios";
 
 const TASK_API_BASE_PATH = "/task";
 
@@ -37,7 +37,7 @@ export const useGetTaskAPI = () => {
 };
 
 export const useTaskDeleteAPI = () => {
-  const [callApi, { isLoading, isError, isSuccess }] = useAxiosPost();
+  const [callApi, { isLoading, isError, isSuccess }] = useAxiosDelete();
   const deleteTaskAPI = async (
     id: string,
     config: AxiosRequestConfig<object> = {}

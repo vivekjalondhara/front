@@ -111,78 +111,6 @@ export type AsyncSelectGetOptionsType = (
   { option: Option[]; count: number; extraInfo?: any[] } | undefined
 >;
 
-//** checkbox field type */
-export interface CheckboxPropsTypes<TFormValues extends FieldValues>
-  extends CommonInputProps,
-    InputProps {
-  id?: string;
-  name?: Path<TFormValues>;
-  fieldLabelClass?: string;
-  hasFieldLabel?: boolean;
-  checked?: boolean;
-  register?: UseFormRegister<TFormValues>;
-  options?: Option[];
-  onChange?: CommonChangeEvent<HTMLInputElement>;
-  type?: string;
-}
-
-// ** RADIO BUTTON PROPS TYPE **
-export interface RadioButtonPropsTypes<TFormValues extends FieldValues>
-  extends CommonInputProps,
-    InputProps {
-  id?: string;
-  fieldLabelClass?: string;
-  name?: Path<TFormValues>;
-  register?: UseFormRegister<TFormValues>;
-  type?: "radio";
-  control?: Control<TFormValues>;
-  value?: string;
-  options?: Option[];
-  onChange?: CommonChangeEvent<HTMLInputElement>;
-}
-
-// export declare type Placement =
-//   | AutoPlacement
-//   | BasePlacement
-//   | VariationPlacement;
-
-export interface ReactDatePickerPropsTypes<TFormValues extends FieldValues>
-  extends CommonInputProps {
-  dateFormat?: string;
-  selected?: Date | null;
-  name?: Path<TFormValues>;
-  placeholder?: string;
-  control?: Control<TFormValues>;
-  value?: string;
-  register?: UseFormRegister<TFormValues>;
-  // ** Event Attributes
-  onChange?: (date: Date | null) => void;
-  getOnChangeDateInput?: (value: HTMLInputElement | null | undefined) => void;
-  disabled?: boolean;
-  placeholderText?: string;
-  popperPlacement?: any;
-  popperPosition?: "fixed";
-  popperProps?: { strategy?: string };
-  minDate?: Date | null;
-  maxDate?: Date | null;
-  // ** Year Month Dropdown
-  showYearDropdown?: boolean;
-  showMonthDropdown?: boolean;
-  scrollableYearDropdown?: boolean;
-  scrollableMonthYearDropdown?: boolean;
-  dropdownMode?: "scroll" | "select";
-  open?: boolean;
-  onClickOutside?(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void;
-  excludeTimes?: Date[] | undefined;
-
-  // ** Custom attributes
-  customInput?: React.ReactNode;
-  inline?: boolean;
-  showTimeSelect?: boolean;
-  showTimeSelectOnly?: boolean;
-  timeCaption?: string;
-}
-
 export interface FormFieldProps<TFormValues extends FieldValues>
   extends TextInputProps<TFormValues> {
   control?: Control<TFormValues>;
@@ -190,44 +118,6 @@ export interface FormFieldProps<TFormValues extends FieldValues>
   errors?: { message?: string; [key: string]: any };
 }
 
-export interface TextAreaInputProps<TFormValues extends FieldValues> {
-  id: string;
-  errors?: { message?: string; [key: string]: any };
-  name?: keyof TFormValues;
-  label?: string;
-  labelClass?: string;
-  type?: string;
-  className?: string;
-  maxLength?: number;
-  placeholder?: string;
-  required?: boolean;
-  disabled?: boolean;
-  readOnly?: boolean;
-  defaultValue?: string;
-  value?: string;
-  inputMode?: string;
-  icon?: "Eye" | "EyeOff";
-  wrapperClass?: string;
-  onIconClick?: () => void;
-  register?: any;
-  onChange?: (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-  onBlur?: (
-    event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-  onFocus?: (
-    event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-  onKeyDown?: (
-    event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-  onKeyUp?: (
-    event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-  rows?: number;
-  cols?: number;
-}
 type StylesType = {
   container?: (provided: any) => any;
   control?: (provided: any) => any;
