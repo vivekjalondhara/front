@@ -1,0 +1,415 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* form-css start */
+.field__wrapper {
+  @apply mb-[20px] w-full;
+}
+.field__wrapper .label__DSD {
+  @apply text-textDark flex font-normal mb-[7px] text-[14px] w-full;
+}
+.field__wrapper .label__DSD .required__sign {
+  @apply text-textDanger inline-block ml-[4px];
+}
+.input__DSD {
+  @apply w-full border-0 text-[14px] font-normal text-textDark h-[40px] bg-bgWhiteSD rounded-[10px] pt-[6px] pb-[5px] px-[12px] shadow-recessShadow placeholder:text-gray-400 placeholder:opacity-100 hover:outline hover:outline-1 hover:-outline-offset-[1px] hover:outline-primaryColor focus:outline focus:outline-1 focus:-outline-offset-[1px] focus:outline-[#6558F5] focus:border-0;
+}
+.field__has__icon {
+  @apply relative;
+}
+.field__has__icon .input__DSD {
+  @apply pr-[42px];
+}
+.field__has__icon .icon__wrapper {
+  @apply absolute right-[10px] top-[8px];
+}
+.field__has__icon .icon__wrapper {
+  @apply w-[22px] h-[22px];
+}
+.field__has__icon .icon__wrapper svg {
+  @apply w-full h-full;
+}
+.field__has__icon.icon__position__left .input__DSD {
+  @apply pr-[12px] pl-[42px];
+}
+.field__has__icon.icon__position__left .icon__wrapper {
+  @apply right-unset left-[10px];
+}
+
+/* form-css end */
+
+.button__task {
+  @apply bg-bgWhiteSD inline-flex items-center justify-center rounded-[7px] text-[14px] font-medium px-[24px] text-center leading-[14px] py-[7px] pb-[9px] duration-300 relative before:content-[''] before:absolute before:top-0 before:left-0 before:rounded-[7px] before:w-full before:h-full before:bg-transparent before:duration-300 after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:border-[1px] after:border-transparent after:rounded-[7px] after:z-[2] after:duration-300;
+}
+
+.button__task .btn__text {
+  @apply relative top-[1px] z-[2] duration-300;
+}
+.button__task .small__loader__sd {
+  @apply mr-[8px] p-[5px] top-[-1px];
+}
+/* primary__Btn */
+
+.button__task.primary__Btn {
+  @apply before:bg-primaryColor hover:before:bg-primaryColorDark;
+}
+.button__task.primary__Btn .btn__text {
+  @apply text-[#ffffff];
+}
+.button__task.primary__Btn .small__loader__sd {
+  @apply border-[#ffffff60] border-r-[#ffffff];
+}
+/* primary__Btn__end */
+
+.error__message {
+  @apply text-[13px] text-textDanger mt-[5px];
+}
+
+.field__wrapper {
+  @apply mb-[20px] w-full;
+}
+.field__wrapper .label__DSD {
+  @apply text-textDark flex font-normal mb-[7px] text-[14px] w-full;
+}
+.field__wrapper .label__DSD .required__sign {
+  @apply text-textDanger inline-block ml-[4px];
+}
+
+.field__wrapper.field__has__error .select__SD__control {
+  @apply !outline !outline-1 !outline-textDanger;
+}
+
+  /* select-box */
+  .select__SD {
+    @apply w-full;
+  }
+  .select__SD div[class$="control"],
+  .select__SD div[class$="control"]:hover,
+  .select__SD .select__SD__control,
+  .select__SD .select__SD__control:hover {
+    @apply min-h-[40px] rounded-[10px] bg-bgWhiteSD pt-[4px] pb-[3px] pl-[10px] pr-[38px] shadow-raiseShadow border-[1px] border-transparent;
+  }
+  .select__SD div[class$="ValueContainer"],
+  .select__SD .select__SD__value-container {
+    @apply relative w-full p-0 pr-[10px];
+  }
+  .select__SD div[class$="placeholder"],
+  .select__SD .select__SD__placeholder {
+    @apply text-[14px] font-normal text-textSecondary opacity-100 whitespace-pre overflow-hidden text-ellipsis;
+  }
+  .select__SD div[class$="singleValue"],
+  .select__SD .select__SD__single-value {
+    @apply text-[14px] leading-[29px] font-normal text-textDark opacity-100 whitespace-pre overflow-hidden text-ellipsis;
+  }
+  .select__SD div[class$="Input"],
+  .select__SD .select__SD__input,
+  .select__SD .select__SD__input-container {
+    @apply absolute top-0 left-0 m-0 h-[30px] w-full p-0 !font-normal !text-[14px] !text-textDark;
+  }
+  .select__SD span[class$="indicatorSeparator"],
+  .select__SD .select__SD__indicator-separator {
+    @apply hidden;
+  }
+  .select__SD div[class$="IndicatorsContainer"],
+  .select__SD .select__SD__indicators {
+    @apply mr-[-28px] cursor-pointer;
+  }
+  .select__SD div[class$="indicatorContainer"]:last-child,
+  .select__SD .select__SD__indicator-separator:last-child {
+    @apply p-0 w-[20px] h-[20px] relative before:content-[''] before:absolute before:w-[9px] before:h-[2px] before:bg-textSecondary before:rounded-[10px] before:rotate-45 before:top-[50%] before:left-[calc(50%_-_3px)] before:translate-x-[-50%] before:translate-y-[-50%] after:content-[''] after:absolute after:w-[9px] after:h-[2px] after:bg-textSecondary after:rounded-[10px] after:rotate-[-45deg] after:top-[50%] after:left-[calc(50%_+_3px)] after:translate-x-[-50%] after:translate-y-[-50%] hover:before:bg-textDark hover:after:bg-textDark;
+  }
+  .select__SD div[class$="indicatorContainer"]:nth-last-of-type(2),
+  .select__SD .select__SD__indicator-separator:nth-last-of-type(2) {
+    @apply p-0 w-[20px] h-[20px] relative cursor-pointer before:content-[''] before:absolute before:w-[12px] before:h-[2px] before:bg-textSecondary hover:before:bg-textDark before:rounded-[10px] before:rotate-45 before:top-[50%] before:left-[calc(50%_-_1px)] before:translate-x-[-50%] before:translate-y-[-50%] after:content-[''] after:absolute after:w-[12px] after:h-[2px] after:bg-textSecondary hover:after:bg-textDark after:rounded-[10px] after:rotate-[-45deg] after:top-[50%] after:left-[calc(50%_-_1px)] after:translate-x-[-50%] after:translate-y-[-50%];
+  }
+  .select__SD div[class$="indicatorContainer"] svg,
+  .select__SD .select__SD__indicator-separator svg {
+    @apply !opacity-0;
+  }
+  .select__SD svg[class$="Svg"],
+  .select__SD .select__SD__svg {
+    @apply fill-textDark opacity-0;
+  }
+  .select__SD .select__SD__control.select__SD__control--menu-is-open {
+    @apply !outline !outline-1 !outline-primaryColor;
+  }
+  .select__SD .select__SD__control.select__SD__control--menu-is-open,
+  .select__SD .select__SD__control.select__SD__control--menu-is-open:hover {
+    @apply pt-[4px] pb-[3px];
+  }
+
+  .select__SD .select__SD__menu {
+    @apply shadow-raiseShadow rounded-[10px] mb-0 mt-[5px] z-[5];
+  }
+  .select__SD .select__SD__menu-portal {
+    @apply z-[5];
+  }
+  .select__SD .select__SD__menu-list {
+    @apply p-[6px] rounded-[8px] overflow-x-hidden overflow-y-auto max-h-[250px];
+  }
+  .select__SD .select__SD__option {
+    @apply font-normal text-[14px] text-textSecondary border-b-[1px] border-b-gray-200 py-[7px] px-[8px] cursor-pointer last:border-b-0 first:rounded-t-[8px] last:rounded-b-[8px];
+  }
+  .select__SD .select__SD__option.select__SD__option--is-focused {
+    @apply bg-bgWhiteSD;
+  }
+  .select__SD .select__SD__option.select__SD__option--is-selected,
+  .select__SD
+    .select__SD__option.select__SD__option--is-selected.select__SD__option--is-focused {
+    @apply bg-primaryColor text-[#ffffff];
+  }
+  .select__SD .select__SD__menu-notice.select__SD__menu-notice--no-options {
+    @apply text-[16px] font-normal text-textSecondary py-[8px] px-[12px] text-center;
+  }
+
+
+/* src/styles/TaskDashboard.css */
+/* src/styles/TaskDashboard.css */
+
+.task-dashboard {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+}
+
+.dashboard-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 36px;
+  color: #333;
+}
+
+.task-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.task-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.task-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.task-card p {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.task-meta {
+  margin-top: 10px;
+  color: #777;
+}
+
+.status-todo {
+  color: #e74c3c;
+}
+
+.status-in-progress {
+  color: #f39c12;
+}
+
+.status-completed {
+  color: #2ecc71;
+}
+
+.priority-low {
+  color: #3498db;
+}
+
+.priority-medium {
+  color: #f39c12;
+}
+
+.priority-high {
+  color: #e74c3c;
+}
+
+.view-details-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.view-details-link:hover {
+  text-decoration: underline;
+}
+
+/* Task Details Page */
+.task-details {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.task-details h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.task-details p {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.task-meta {
+  margin-top: 10px;
+  color: #777;
+}
+
+
+.edit-task-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.edit-task-link:hover {
+  text-decoration: underline;
+}
+
+.task-actions {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space out the links evenly */
+  margin-top: 10px; /* Add some spacing above the action links */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Distribute space evenly between buttons */
+  margin-bottom: 30px; /* Space between the buttons and task dashboard */
+}
+
+.add-task-btn {
+  /* Add specific styles if necessary, for example: */
+  margin-right: 10px; /* Space between the buttons */
+}
+
+/* Styling for the Logout button */
+.logout-btn {
+  background-color: #dc3545; /* Red color for logout */
+  margin-left: 10px;
+}
+
+.logout-btn:hover {
+  background-color: #c82333;
+}
+
+.delete-btn {
+  background-color: #fe0000;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+
+.task-details-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-details-card h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.task-details-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 12px 0;
+  color: #555;
+}
+
+
+.task-details-card span {
+  font-weight: bold;
+}
+
+.status-inprogress {
+  color: #f39c12;
+}
+
+.status-completed {
+  color: #2ecc71;
+}
+
+.status-todo {
+  color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+  .task-detail-page {
+    padding: 15px;
+  }
+
+  .task-header h1 {
+    font-size: 24px;
+  }
+
+  .task-details-card {
+    padding: 15px;
+  }
+}
