@@ -1,7 +1,7 @@
 import { AxiosRequestConfig } from "axios";
 import { useAxiosDelete, useAxiosGet, useAxiosPost } from "hooks/useAxios";
 
-const TASK_API_BASE_PATH = "/task";
+const TASK_API_BASE_PATH = "/tasks";
 
 export const useGetAllTaskAPI = () => {
   // ** Custom Hooks **
