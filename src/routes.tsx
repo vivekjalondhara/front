@@ -9,15 +9,15 @@ import {
 // components **
 import RequiresUnAuth from "./modules/Auth/components/RequiresUnAuth";
 import RequiresAuth from "./modules/Auth/components/RequireAuth";
+import NotFoundPage from "modules/Auth/pages/NotFound";
+import AddTaskForm from "modules/Dashboard/component/AddTaskForm";
+import TaskDetails from "modules/Dashboard/component/TaskDetail";
 
 // ** constants **
 import { PRIVATE_NAVIGATION } from "./constants/navigation.constant";
 
 // ** routes **
 import AuthenticationRoutes from "./modules/Auth/routes";
-import NotFoundPage from "modules/Auth/pages/NotFound";
-import AddTaskForm from "modules/Dashboard/component/AddTaskForm";
-import TaskDetails from "modules/Dashboard/component/TaskDetail";
 
 //  ** type **
 export type RouteObjType = {

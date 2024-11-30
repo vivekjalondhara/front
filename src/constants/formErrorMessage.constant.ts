@@ -16,7 +16,7 @@ export enum PasswordError {
   specialCharReq = "At least 1 special character.",
   match = "Password and confirm password must match",
 }
-/* --------------------- Email Error ------------------------ */
+
 export enum EmailError {
   required = "Email is required",
   valid = "Please enter a valid email address",

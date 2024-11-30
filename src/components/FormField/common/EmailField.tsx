@@ -1,7 +1,3 @@
-// ** Custom Component **
-// ** Components **
-// ** Type **
-
 import { TextInputProps } from "../Types/formField.types";
 import InputField from "./InputField";
 

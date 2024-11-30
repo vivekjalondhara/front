@@ -1,5 +1,10 @@
 import { AxiosRequestConfig } from "axios";
-import { useAxiosDelete, useAxiosGet, useAxiosPost } from "hooks/useAxios";
+import {
+  useAxiosDelete,
+  useAxiosGet,
+  useAxiosPost,
+  useAxiosPut,
+} from "hooks/useAxios";
 
 const TASK_API_BASE_PATH = "/tasks";
 
@@ -25,8 +30,18 @@ export const useCreateTaskAPI = () => {
   return { CreateTaskAPI, isLoading, isError, isSuccess };
 };
 
+export const useUpdateTaskAPI = () => {
+  const [callApi, { isLoading, isError, isSuccess }] = useAxiosPut();
+  const updateTaskAPI = async (
+    data: object,
+    config: AxiosRequestConfig<object> = {}
+  ) => {
+    return callApi(`${TASK_API_BASE_PATH}/update`, data, config);
+  };
+  return { updateTaskAPI, isLoading, isError, isSuccess };
+};
+
 export const useGetTaskAPI = () => {
-  // ** Custom Hooks **
   const [callApi, { isLoading, isError, isSuccess }] = useAxiosGet();
 
   const getTaskAPI = async ({ taskId }: { taskId: string }) => {

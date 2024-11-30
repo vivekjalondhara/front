@@ -18,7 +18,6 @@ import {
 } from "react-select";
 import { FilterOptionOption } from "react-select/dist/declarations/src/filters";
 
-// ** HTML INPUT TYPE **
 export type InputProps = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
@@ -37,12 +36,10 @@ export type InputTypeFields =
   | "number"
   | "url";
 
-// ** HTML INPUT ONCHANGE TYPE **
 export type CommonChangeEvent<TElement> = (
   event: ChangeEvent<TElement>
 ) => void;
 
-// ** COMMON PROPS TYPE **
 export type CommonInputProps = {
   label?: string;
   disabled?: boolean;
@@ -58,7 +55,6 @@ export type CommonInputProps = {
 };
 type IconType = "Eye" | "EyeOff";
 
-// ** TEXT INPUT PROPS TYPE **
 export interface TextInputProps<TFormValues extends FieldValues>
   extends CommonInputProps,
     InputProps {
@@ -129,14 +125,12 @@ type StylesType = {
 
 export interface ReactSelectPropsTypes<TFormValues extends FieldValues>
   extends CommonInputProps {
-  // ** Basic Input Properties
   key?: string;
   name?: Path<TFormValues>;
   control?: Control<TFormValues>;
   value?: MultiValue<Option> | SingleValue<Option>;
   onChange?: (...event: any[]) => void;
 
-  // ** Select Options
   options?: Option[];
   isMulti?: boolean;
   placeholder?: string;
@@ -148,7 +142,6 @@ export interface ReactSelectPropsTypes<TFormValues extends FieldValues>
   menuPlacement?: "auto" | "top" | "bottom";
   setInputValue?: React.Dispatch<React.SetStateAction<boolean>>;
 
-  // ** Customization and Accessibility
   formatOptionLabel?: (option: Option, context: any) => React.ReactNode;
   components?: any;
   ["aria-label"]?: string;
@@ -164,20 +157,16 @@ export interface ReactSelectPropsTypes<TFormValues extends FieldValues>
   virtualized?: boolean;
   getOptionLabel?: (option: Option) => string;
   getOptionValue?: (option: Option) => string;
-
-  // ** Event Handlers
   onMenuOpen?: () => void;
   onMenuClose?: () => void;
   onInputChange?: (inputValue: string, actionMeta: any) => void;
   onKeyDown?: (event: React.KeyboardEvent) => void;
 
-  // ** Accessibility and Styling
   tabIndex?: number;
   menuIsOpen?: boolean;
   styles?: StylesType;
   inputMaxLength?: number;
 
-  // ** Async Select (if applicable)
   getOptions?: AsyncSelectGetOptionsType;
   onFocusApiCall?: boolean;
   defaultSelectValue?: Option;
@@ -185,7 +174,6 @@ export interface ReactSelectPropsTypes<TFormValues extends FieldValues>
   serveSideSearch?: boolean;
   getOnChange?: (...event: any[]) => void;
 
-  // ** Custom No Options Message and Components
   noOptionsMessage?: () => React.ReactNode;
   OptionComponent?: ComponentType<
     OptionProps<Option, boolean, GroupBase<Option>>

@@ -1,11 +1,13 @@
+// ** Packages  **//
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+// ** Components **
 import { TextField } from "components/FormField";
 import Button from "components/Theme/Components/Button";
 import { taskValidatioonSchema } from "../validation-schema";
 import { TaskFormData } from "../types";
-import { useCreateTaskAPI, useGetTaskAPI } from "../services";
+import { useCreateTaskAPI, useGetTaskAPI, useUpdateTaskAPI } from "../services";
 import { useNavigate, useParams } from "react-router-dom";
 import { PRIVATE_NAVIGATION } from "constants/navigation.constant";
 import SelectField from "components/FormField/common/SelectField";
@@ -19,6 +21,7 @@ const AddTaskForm = (props: PropsType) => {
   const { id } = useParams();
   const navidate = useNavigate();
   const { CreateTaskAPI, isLoading } = useCreateTaskAPI();
+  const { updateTaskAPI, isLoading: updateTaskLoading } = useUpdateTaskAPI();
   const { getTaskAPI, isLoading: taslGetLoading } = useGetTaskAPI();
   const {
     handleSubmit,
@@ -31,14 +34,25 @@ const AddTaskForm = (props: PropsType) => {
   });
 
   const onSubmit = async (value: TaskFormData) => {
-    const newValue = {
-      ...value,
-      status: value.status.value,
-      ...(id && { id: id }),
-    };
-    const { data, error } = await CreateTaskAPI(newValue);
-    if (data && !error) {
-      navidate(PRIVATE_NAVIGATION.dashboard.view);
+    if (id) {
+      const newValue = {
+        ...value,
+        status: value.status.value,
+        ...(id && { id: id }),
+      };
+      const { data, error } = await updateTaskAPI(newValue);
+      if (data && !error) {
+        navidate(PRIVATE_NAVIGATION.dashboard.view);
+      }
+    } else {
+      const newValue = {
+        ...value,
+        status: value.status.value,
+      };
+      const { data, error } = await CreateTaskAPI(newValue);
+      if (data && !error) {
+        navidate(PRIVATE_NAVIGATION.dashboard.view);
+      }
     }
   };
   const getTask = async () => {
@@ -110,7 +124,7 @@ const AddTaskForm = (props: PropsType) => {
               <Button
                 type="submit"
                 className="primary__Btn w-[150] text-align ml-[10px]"
-                loading={isLoading}
+                loading={isLoading || updateTaskLoading}
               >
                 Submit
               </Button>

@@ -1,6 +1,3 @@
-// ** components **
-
-// ** types **
 import * as Icon from "react-feather";
 import { TextInputProps } from "../Types/formField.types";
 import Label from "../common/LabelField";
@@ -77,7 +74,7 @@ const InputField = <TFormValues extends Record<string, unknown>>(
               disabled={disabled}
               readOnly={readOnly}
               placeholder={placeholder}
-              className={`input__DSD ${className}`}
+              className={`input__task ${className}`}
               maxLength={maxLength}
               onChange={onChange}
               onBlur={onBlur}

@@ -47,13 +47,13 @@
 .field__wrapper .label__DSD .required__sign {
   @apply text-textDanger inline-block ml-[4px];
 }
-.input__DSD {
+.input__task {
   @apply w-full border-0 text-[14px] font-normal text-textDark h-[40px] bg-bgWhiteSD rounded-[10px] pt-[6px] pb-[5px] px-[12px] shadow-recessShadow placeholder:text-gray-400 placeholder:opacity-100 hover:outline hover:outline-1 hover:-outline-offset-[1px] hover:outline-primaryColor focus:outline focus:outline-1 focus:-outline-offset-[1px] focus:outline-[#6558F5] focus:border-0;
 }
 .field__has__icon {
   @apply relative;
 }
-.field__has__icon .input__DSD {
+.field__has__icon .input__task {
   @apply pr-[42px];
 }
 .field__has__icon .icon__wrapper {
@@ -65,7 +65,7 @@
 .field__has__icon .icon__wrapper svg {
   @apply w-full h-full;
 }
-.field__has__icon.icon__position__left .input__DSD {
+.field__has__icon.icon__position__left .input__task {
   @apply pr-[12px] pl-[42px];
 }
 .field__has__icon.icon__position__left .icon__wrapper {
@@ -115,89 +115,88 @@
   @apply !outline !outline-1 !outline-textDanger;
 }
 
-  /* select-box */
-  .select__SD {
-    @apply w-full;
-  }
-  .select__SD div[class$="control"],
-  .select__SD div[class$="control"]:hover,
-  .select__SD .select__SD__control,
-  .select__SD .select__SD__control:hover {
-    @apply min-h-[40px] rounded-[10px] bg-bgWhiteSD pt-[4px] pb-[3px] pl-[10px] pr-[38px] shadow-raiseShadow border-[1px] border-transparent;
-  }
-  .select__SD div[class$="ValueContainer"],
-  .select__SD .select__SD__value-container {
-    @apply relative w-full p-0 pr-[10px];
-  }
-  .select__SD div[class$="placeholder"],
-  .select__SD .select__SD__placeholder {
-    @apply text-[14px] font-normal text-textSecondary opacity-100 whitespace-pre overflow-hidden text-ellipsis;
-  }
-  .select__SD div[class$="singleValue"],
-  .select__SD .select__SD__single-value {
-    @apply text-[14px] leading-[29px] font-normal text-textDark opacity-100 whitespace-pre overflow-hidden text-ellipsis;
-  }
-  .select__SD div[class$="Input"],
-  .select__SD .select__SD__input,
-  .select__SD .select__SD__input-container {
-    @apply absolute top-0 left-0 m-0 h-[30px] w-full p-0 !font-normal !text-[14px] !text-textDark;
-  }
-  .select__SD span[class$="indicatorSeparator"],
-  .select__SD .select__SD__indicator-separator {
-    @apply hidden;
-  }
-  .select__SD div[class$="IndicatorsContainer"],
-  .select__SD .select__SD__indicators {
-    @apply mr-[-28px] cursor-pointer;
-  }
-  .select__SD div[class$="indicatorContainer"]:last-child,
-  .select__SD .select__SD__indicator-separator:last-child {
-    @apply p-0 w-[20px] h-[20px] relative before:content-[''] before:absolute before:w-[9px] before:h-[2px] before:bg-textSecondary before:rounded-[10px] before:rotate-45 before:top-[50%] before:left-[calc(50%_-_3px)] before:translate-x-[-50%] before:translate-y-[-50%] after:content-[''] after:absolute after:w-[9px] after:h-[2px] after:bg-textSecondary after:rounded-[10px] after:rotate-[-45deg] after:top-[50%] after:left-[calc(50%_+_3px)] after:translate-x-[-50%] after:translate-y-[-50%] hover:before:bg-textDark hover:after:bg-textDark;
-  }
-  .select__SD div[class$="indicatorContainer"]:nth-last-of-type(2),
-  .select__SD .select__SD__indicator-separator:nth-last-of-type(2) {
-    @apply p-0 w-[20px] h-[20px] relative cursor-pointer before:content-[''] before:absolute before:w-[12px] before:h-[2px] before:bg-textSecondary hover:before:bg-textDark before:rounded-[10px] before:rotate-45 before:top-[50%] before:left-[calc(50%_-_1px)] before:translate-x-[-50%] before:translate-y-[-50%] after:content-[''] after:absolute after:w-[12px] after:h-[2px] after:bg-textSecondary hover:after:bg-textDark after:rounded-[10px] after:rotate-[-45deg] after:top-[50%] after:left-[calc(50%_-_1px)] after:translate-x-[-50%] after:translate-y-[-50%];
-  }
-  .select__SD div[class$="indicatorContainer"] svg,
-  .select__SD .select__SD__indicator-separator svg {
-    @apply !opacity-0;
-  }
-  .select__SD svg[class$="Svg"],
-  .select__SD .select__SD__svg {
-    @apply fill-textDark opacity-0;
-  }
-  .select__SD .select__SD__control.select__SD__control--menu-is-open {
-    @apply !outline !outline-1 !outline-primaryColor;
-  }
-  .select__SD .select__SD__control.select__SD__control--menu-is-open,
-  .select__SD .select__SD__control.select__SD__control--menu-is-open:hover {
-    @apply pt-[4px] pb-[3px];
-  }
+/* select-box */
+.select__SD {
+  @apply w-full;
+}
+.select__SD div[class$="control"],
+.select__SD div[class$="control"]:hover,
+.select__SD .select__SD__control,
+.select__SD .select__SD__control:hover {
+  @apply min-h-[40px] rounded-[10px] bg-bgWhiteSD pt-[4px] pb-[3px] pl-[10px] pr-[38px] shadow-raiseShadow border-[1px] border-transparent;
+}
+.select__SD div[class$="ValueContainer"],
+.select__SD .select__SD__value-container {
+  @apply relative w-full p-0 pr-[10px];
+}
+.select__SD div[class$="placeholder"],
+.select__SD .select__SD__placeholder {
+  @apply text-[14px] font-normal text-textSecondary opacity-100 whitespace-pre overflow-hidden text-ellipsis;
+}
+.select__SD div[class$="singleValue"],
+.select__SD .select__SD__single-value {
+  @apply text-[14px] leading-[29px] font-normal text-textDark opacity-100 whitespace-pre overflow-hidden text-ellipsis;
+}
+.select__SD div[class$="Input"],
+.select__SD .select__SD__input,
+.select__SD .select__SD__input-container {
+  @apply absolute top-0 left-0 m-0 h-[30px] w-full p-0 !font-normal !text-[14px] !text-textDark;
+}
+.select__SD span[class$="indicatorSeparator"],
+.select__SD .select__SD__indicator-separator {
+  @apply hidden;
+}
+.select__SD div[class$="IndicatorsContainer"],
+.select__SD .select__SD__indicators {
+  @apply mr-[-28px] cursor-pointer;
+}
+.select__SD div[class$="indicatorContainer"]:last-child,
+.select__SD .select__SD__indicator-separator:last-child {
+  @apply p-0 w-[20px] h-[20px] relative before:content-[''] before:absolute before:w-[9px] before:h-[2px] before:bg-textSecondary before:rounded-[10px] before:rotate-45 before:top-[50%] before:left-[calc(50%_-_3px)] before:translate-x-[-50%] before:translate-y-[-50%] after:content-[''] after:absolute after:w-[9px] after:h-[2px] after:bg-textSecondary after:rounded-[10px] after:rotate-[-45deg] after:top-[50%] after:left-[calc(50%_+_3px)] after:translate-x-[-50%] after:translate-y-[-50%] hover:before:bg-textDark hover:after:bg-textDark;
+}
+.select__SD div[class$="indicatorContainer"]:nth-last-of-type(2),
+.select__SD .select__SD__indicator-separator:nth-last-of-type(2) {
+  @apply p-0 w-[20px] h-[20px] relative cursor-pointer before:content-[''] before:absolute before:w-[12px] before:h-[2px] before:bg-textSecondary hover:before:bg-textDark before:rounded-[10px] before:rotate-45 before:top-[50%] before:left-[calc(50%_-_1px)] before:translate-x-[-50%] before:translate-y-[-50%] after:content-[''] after:absolute after:w-[12px] after:h-[2px] after:bg-textSecondary hover:after:bg-textDark after:rounded-[10px] after:rotate-[-45deg] after:top-[50%] after:left-[calc(50%_-_1px)] after:translate-x-[-50%] after:translate-y-[-50%];
+}
+.select__SD div[class$="indicatorContainer"] svg,
+.select__SD .select__SD__indicator-separator svg {
+  @apply !opacity-0;
+}
+.select__SD svg[class$="Svg"],
+.select__SD .select__SD__svg {
+  @apply fill-textDark opacity-0;
+}
+.select__SD .select__SD__control.select__SD__control--menu-is-open {
+  @apply !outline !outline-1 !outline-primaryColor;
+}
+.select__SD .select__SD__control.select__SD__control--menu-is-open,
+.select__SD .select__SD__control.select__SD__control--menu-is-open:hover {
+  @apply pt-[4px] pb-[3px];
+}
 
-  .select__SD .select__SD__menu {
-    @apply shadow-raiseShadow rounded-[10px] mb-0 mt-[5px] z-[5];
-  }
-  .select__SD .select__SD__menu-portal {
-    @apply z-[5];
-  }
-  .select__SD .select__SD__menu-list {
-    @apply p-[6px] rounded-[8px] overflow-x-hidden overflow-y-auto max-h-[250px];
-  }
-  .select__SD .select__SD__option {
-    @apply font-normal text-[14px] text-textSecondary border-b-[1px] border-b-gray-200 py-[7px] px-[8px] cursor-pointer last:border-b-0 first:rounded-t-[8px] last:rounded-b-[8px];
-  }
-  .select__SD .select__SD__option.select__SD__option--is-focused {
-    @apply bg-bgWhiteSD;
-  }
-  .select__SD .select__SD__option.select__SD__option--is-selected,
-  .select__SD
-    .select__SD__option.select__SD__option--is-selected.select__SD__option--is-focused {
-    @apply bg-primaryColor text-[#ffffff];
-  }
-  .select__SD .select__SD__menu-notice.select__SD__menu-notice--no-options {
-    @apply text-[16px] font-normal text-textSecondary py-[8px] px-[12px] text-center;
-  }
-
+.select__SD .select__SD__menu {
+  @apply shadow-raiseShadow rounded-[10px] mb-0 mt-[5px] z-[5];
+}
+.select__SD .select__SD__menu-portal {
+  @apply z-[5];
+}
+.select__SD .select__SD__menu-list {
+  @apply p-[6px] rounded-[8px] overflow-x-hidden overflow-y-auto max-h-[250px];
+}
+.select__SD .select__SD__option {
+  @apply font-normal text-[14px] text-textSecondary border-b-[1px] border-b-gray-200 py-[7px] px-[8px] cursor-pointer last:border-b-0 first:rounded-t-[8px] last:rounded-b-[8px];
+}
+.select__SD .select__SD__option.select__SD__option--is-focused {
+  @apply bg-bgWhiteSD;
+}
+.select__SD .select__SD__option.select__SD__option--is-selected,
+.select__SD
+  .select__SD__option.select__SD__option--is-selected.select__SD__option--is-focused {
+  @apply bg-primaryColor text-[#ffffff];
+}
+.select__SD .select__SD__menu-notice.select__SD__menu-notice--no-options {
+  @apply text-[16px] font-normal text-textSecondary py-[8px] px-[12px] text-center;
+}
 
 /* src/styles/TaskDashboard.css */
 /* src/styles/TaskDashboard.css */
@@ -206,7 +205,7 @@
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .dashboard-title {
@@ -287,13 +286,10 @@
   text-decoration: underline;
 }
 
-
-
 .task-meta {
   margin-top: 10px;
   color: #777;
 }
-
 
 .edit-task-link {
   display: inline-block;
@@ -366,9 +362,6 @@
   }
 }
 
-
-
-
 .button__task .small__loader__sd {
   @apply mr-[8px] p-[5px] top-0; /* Ensure it's positioned correctly */
 }
@@ -384,19 +377,20 @@
 .button__task.primary__Btn .small__loader__sd {
   @apply border-[#ffffff60] border-r-[#ffffff] z-10; /* Ensure loader is visible */
   width: 20px;
-  height: 20px; 
+  height: 20px;
   border-radius: 50%;
-  border-top: 2px solid #ffffff; 
-  animation: spin 1s linear infinite; 
+  border-top: 2px solid #ffffff;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
-
- 
 
 /* Add this CSS to your styles */
 body.dark-mode {
@@ -408,5 +402,3 @@ body {
   background-color: #ffffff;
   color: #000000;
 }
-
-

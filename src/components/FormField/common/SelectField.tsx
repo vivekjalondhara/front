@@ -15,7 +15,7 @@ const SelectField = <TFormValues extends Record<string, unknown>>(
     control,
     required,
     placeholder,
-    getOnChange, // EX. ()=>{{label:"",value:""}}
+    getOnChange,
     options = [],
     errorClass = "",
     isMulti = false,
@@ -31,7 +31,7 @@ const SelectField = <TFormValues extends Record<string, unknown>>(
     menuPlacement = "auto",
     menuPosition = "fixed",
     onChange: onCustomChange,
-    defaultSelectValue, // EX. {label:"",value:""}
+    defaultSelectValue,
   } = fieldProps;
   return (
     <div
