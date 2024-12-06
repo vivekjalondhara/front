@@ -1,20 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
-import store from './redux/store';
-import { setupAxios } from 'base-axios';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import { store, persiststore } from "./redux/store";
+import { setupAxios } from "base-axios";
+import { PersistGate } from "redux-persist/integration/react";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 setupAxios(store);
 
 root.render(
   <Provider store={store}>
-    <App />
+    <PersistGate persistor={persiststore}>
+      <App />
+    </PersistGate>
   </Provider>
 );
 

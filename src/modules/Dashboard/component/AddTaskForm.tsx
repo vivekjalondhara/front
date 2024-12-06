@@ -12,6 +12,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { PRIVATE_NAVIGATION } from "constants/navigation.constant";
 import SelectField from "components/FormField/common/SelectField";
 import PageLoader from "components/Theme/Components/PageLoader";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getModifiedTask,
+  setModifiedTask,
+} from "../../../redux/slices/taskSlice";
 
 type PropsType = {
   id?: string | null | undefined;
@@ -20,6 +25,10 @@ type PropsType = {
 const AddTaskForm = (props: PropsType) => {
   const { id } = useParams();
   const navidate = useNavigate();
+  const dispatch = useDispatch();
+  const modifiedTask = useSelector(getModifiedTask);
+
+  console.log("modifiedTask", modifiedTask);
   const { CreateTaskAPI, isLoading } = useCreateTaskAPI();
   const { updateTaskAPI, isLoading: updateTaskLoading } = useUpdateTaskAPI();
   const { getTaskAPI, isLoading: taslGetLoading } = useGetTaskAPI();
@@ -35,15 +44,19 @@ const AddTaskForm = (props: PropsType) => {
 
   const onSubmit = async (value: TaskFormData) => {
     if (id) {
+      console.log("========");
       const newValue = {
         ...value,
         status: value.status.value,
         ...(id && { id: id }),
+        // modifiedTask: true,
       };
-      const { data, error } = await updateTaskAPI(newValue);
-      if (data && !error) {
-        navidate(PRIVATE_NAVIGATION.dashboard.view);
-      }
+      dispatch(setModifiedTask([newValue]));
+
+      // const { data, error } = await updateTaskAPI(newValue);
+      // if (data && !error) {
+      navidate(PRIVATE_NAVIGATION.dashboard.view);
+      // }
     } else {
       const newValue = {
         ...value,

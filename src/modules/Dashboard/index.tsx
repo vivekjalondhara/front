@@ -10,11 +10,16 @@ import {
   setAuthInitialized,
   setCurrentUser,
 } from "../../redux/slices/authSlice";
-import { useDispatch } from "react-redux";
-import { useGetAllTaskAPI, useTaskDeleteAPI } from "./services";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  useGetAllTaskAPI,
+  useTaskDeleteAPI,
+  useUpdateTaskAPI,
+} from "./services";
 import InputField from "components/FormField/common/InputField";
 import PageLoader from "components/Theme/Components/PageLoader";
 import DarkModeToggle from "components/Theme/Components/DarkModeToggle";
+import { getModifiedTask, setModifiedTask } from "../../redux/slices/taskSlice";
 interface Task {
   _id: string;
   title: string;
@@ -22,13 +27,19 @@ interface Task {
   status: "Pending" | "In Progress" | "Completed";
   createdAt: string;
   updatedAt: string;
+  modified?: boolean;
 }
 const TaskBoard1 = () => {
+  const modifiedTask = useSelector(getModifiedTask);
+
   const { getAllTaskAPI, isLoading } = useGetAllTaskAPI();
   const { deleteTaskAPI, isLoading: deleteTaskLoading } = useTaskDeleteAPI();
+  const { updateTaskAPI, isLoading: updateTaskLoading } = useUpdateTaskAPI();
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [data, setData] = useState<Task[]>();
+  const [reRender, setRerender] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
   const getAllBoardWithTask = async () => {
@@ -39,12 +50,40 @@ const TaskBoard1 = () => {
     });
     if (data && !error) {
       setData(data?.data);
+      setRerender(true);
     }
   };
+
+  const modifiedArrayMatch = () => {
+    const newData = data?.map((item) => {
+      if (modifiedTask?.task) {
+        const modifiedData = modifiedTask?.task?.find(
+          (value) => value?.id === item._id
+        );
+        if (modifiedData) {
+          return {
+            ...item,
+            title: modifiedData?.title,
+            description: modifiedData?.description,
+            modified: true,
+          };
+        }
+        return item;
+      }
+      return item;
+    });
+    setData(newData);
+    setRerender(false);
+  };
+
   useEffect(() => {
     getAllBoardWithTask();
   }, [searchQuery]);
-
+  useEffect(() => {
+    if (data) {
+      modifiedArrayMatch();
+    }
+  }, [JSON.stringify(modifiedTask.task), reRender]);
   const deleteTask = async (id: string) => {
     const { error } = await deleteTaskAPI(id);
     if (!error) {
@@ -63,6 +102,22 @@ const TaskBoard1 = () => {
       })
     );
     dispatch(setAuthInitialized());
+  };
+
+  const updateTask = async ({ task }: any) => {
+    const newValue = {
+      description: task.description,
+      title: task.title,
+      status: task.status.value,
+      id: task._id,
+    };
+    const { error } = await updateTaskAPI(newValue);
+    if (!error) {
+      // const modifiedTask
+      dispatch(setModifiedTask([]));
+
+      getAllBoardWithTask();
+    }
   };
   return (
     <div className="flex justify-between items-start mt-10 px-6">
@@ -123,6 +178,7 @@ const TaskBoard1 = () => {
                         Delete
                       </Button>
                     </div>
+                    <div>{task?.modified ? "modified " : ""}</div>
                   </div>
                   <div className="task-meta mt-2">
                     <p>
@@ -145,6 +201,9 @@ const TaskBoard1 = () => {
                     >
                       Edit
                     </Link>
+                  </div>
+                  <div onClick={() => updateTask({ task })}>
+                    {task?.modified ? "save " : ""}
                   </div>
                 </div>
               ))
